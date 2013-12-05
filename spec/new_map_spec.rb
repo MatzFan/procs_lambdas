@@ -19,12 +19,12 @@ describe Array do
       array.new_map{}.class.should == Array
     end
 
-    it "should take a block arg" do
+    it "should have to take a block arg" do
       lambda { array.new_map }.should raise_error(LocalJumpError)
     end
 
-    it "should take a block arg" do
-      array.new_map{ 'a block' }.should == ['a block', 'a block', 'a block']
+    it "should return the same number of elements as the array it is called on" do
+      array.new_map{ 'a block' }.length.should == 3
     end
 
     it "should return an array with the elements modified by the block arg" do
